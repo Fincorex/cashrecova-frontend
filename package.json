@@ -1,0 +1,50 @@
+{
+  "name": "fincorex-react-app",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@babel/parser": "^7.29.2",
+    "@headlessui/react": "^2.1.0",
+    "@iconify/react": "^5.0.2",
+    "apexcharts": "^5.10.6",
+    "bootstrap": "^5.3.3",
+    "clsx": "^2.1.1",
+    "feather-icons": "^4.29.2",
+    "framer-motion": "^11.5.4",
+    "hugeicons-react": "^0.3.0",
+    "jquery": "^3.7.1",
+    "jquery.counterup": "^2.1.0",
+    "jsvectormap": "^1.7.0",
+    "lucide-react": "^0.441.0",
+    "node-waves": "^0.7.6",
+    "react": "^19.0.0",
+    "react-apexcharts": "^1.9.0",
+    "react-dom": "^19.0.0",
+    "react-router-dom": "^7.1.0",
+    "simplebar": "^6.3.3",
+    "simplebar-react": "^3.3.2",
+    "tailwind-merge": "^2.5.2",
+    "waypoints": "^4.0.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.0.0-beta.1",
+    "@types/react": "^18.3.5",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react-swc": "^3.5.0",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^9.9.0",
+    "eslint-plugin-react-hooks": "^5.1.0-rc.0",
+    "eslint-plugin-react-refresh": "^0.4.9",
+    "globals": "^15.9.0",
+    "postcss": "^8.4.45",
+    "tailwindcss": "^4.0.0-beta.1",
+    "vite": "^5.4.1"
+  }
+}

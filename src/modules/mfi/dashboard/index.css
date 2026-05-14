@@ -1,0 +1,359 @@
+:root {
+  --bs-body-bg: #f5f6f8;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: var(--bs-body-bg);
+  display: block;
+  /* Fix: Override Vite's display: flex */
+  overflow-x: hidden;
+  /* Fix: Prevent horizontal scroll */
+}
+
+/* Fix for Content Page Margin on Mobile */
+/* Moved and unified below in responsive overrides section */
+
+/* Sidebar Active State Customization */
+.nav-second-level li a.active {
+  background-color: #2b304d !important;
+  /* Deep indigo/blue background */
+  color: #ffffff !important;
+  position: relative;
+  border-radius: 6px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-left: 15px !important;
+}
+
+.nav-second-level li a.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 20px;
+  width: 4px;
+  background-color: #ffffff;
+  border-radius: 0 4px 4px 0;
+}
+
+.app-sidebar-menu {
+  background-color: #1a1d2e;
+  /* Ensure dark background globally if needed */
+}
+
+/* =========================================
+   DARK THEME IMPLEMENTATION
+   ========================================= */
+
+:root {
+  --bs-body-bg: #f5f6f8;
+  --bs-card-bg: #ffffff;
+  --bs-text-color: #333333;
+  --bs-text-muted: #6c757d;
+  --bs-border-color: #eff2f7;
+  --bs-heading-color: #343a40;
+}
+
+[data-bs-theme="dark"] {
+  --bs-body-bg: #22263d;
+  /* Dark background similar to sidebar */
+  --bs-card-bg: #1a1d2e;
+  /* Slightly darker/lighter for cards */
+  --bs-text-color: #e9ecef;
+  --bs-text-muted: #adb5bd;
+  --bs-border-color: #323a4e;
+  --bs-heading-color: #f8f9fa;
+}
+
+body {
+  background-color: var(--bs-body-bg);
+  color: var(--bs-text-color);
+}
+
+.card {
+  background-color: var(--bs-card-bg);
+  border-color: var(--bs-border-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  color: var(--bs-heading-color);
+}
+
+.text-dark {
+  color: var(--bs-heading-color) !important;
+}
+
+.text-muted {
+  color: var(--bs-text-muted) !important;
+}
+
+.bg-white {
+  background-color: var(--bs-card-bg) !important;
+}
+
+.bg-light {
+  background-color: var(--bs-body-bg) !important;
+}
+
+/* Specific Dark Mode Tweaks */
+[data-bs-theme="dark"] .table {
+  --bs-table-color: var(--bs-text-color);
+  --bs-table-bg: var(--bs-card-bg);
+  --bs-table-border-color: var(--bs-border-color);
+}
+
+[data-bs-theme="dark"] .dropdown-menu {
+  background-color: var(--bs-card-bg);
+  border-color: var(--bs-border-color);
+}
+
+[data-bs-theme="dark"] .dropdown-item {
+  color: var(--bs-text-color);
+}
+
+[data-bs-theme="dark"] .dropdown-item:hover {
+  background-color: var(--bs-border-color);
+}
+
+[data-bs-theme="dark"] .form-control {
+  background-color: #2b304d;
+  border-color: var(--bs-border-color);
+  color: var(--bs-text-color);
+}
+
+/* =========================================
+   SIDEBAR & LAYOUT RESPONSIVENESS OVERRIDES
+   ========================================= */
+
+/* Common Transitions */
+.app-sidebar-menu,
+.content-page,
+.footer,
+.logo-box,
+.topbar-custom,
+.sub-navbar {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Sub-navbar custom styling */
+.sub-navbar {
+  position: fixed;
+  top: 70px;
+  right: 0;
+  left: 260px;
+  z-index: 998; /* Just below topbar if needed, but above content */
+  height: 50px;
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--bs-border-color);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+}
+
+[data-bs-theme="dark"] .sub-navbar {
+  background-color: rgba(26, 29, 46, 0.8) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+
+/* ------------------------------------------------
+   DESKTOP / LARGE SCREENS (>= 1040px)
+   ------------------------------------------------ */
+@media (min-width: 1040px) {
+
+  /* --- Condensed State (Collapsed) --- */
+  body[data-sidebar="condensed"] .app-sidebar-menu {
+    width: 70px !important;
+    position: fixed;
+    z-index: 1001;
+    bottom: 0;
+    top: 0;
+  }
+
+  /* Ensure Topbar follows sidebar on Large screens */
+  .topbar-custom,
+  .sub-navbar {
+    left: 260px !important;
+  }
+
+  body[data-sidebar="condensed"] .content-page {
+    margin-left: 70px !important;
+  }
+
+  body[data-sidebar="condensed"] .topbar-custom,
+  body[data-sidebar="condensed"] .sub-navbar {
+    left: 70px !important;
+  }
+
+  body[data-sidebar="condensed"] .footer {
+    left: 70px !important;
+  }
+
+  body[data-sidebar="condensed"] .logo-box {
+    width: 70px !important;
+  }
+
+  /* Hide Text & Arrows in Condensed Mode */
+  body[data-sidebar="condensed"] .app-sidebar-menu .menu-title,
+  body[data-sidebar="condensed"] .app-sidebar-menu .menu-arrow,
+  body[data-sidebar="condensed"] .app-sidebar-menu .badge,
+  body[data-sidebar="condensed"] .app-sidebar-menu #side-menu li a span:not(.nav-icon) {
+    display: none !important;
+  }
+
+  /* Center Icons in Condensed Mode */
+  body[data-sidebar="condensed"] .app-sidebar-menu .nav-icon {
+    margin-right: 0 !important;
+    display: block;
+    text-align: center;
+    width: 100%;
+  }
+
+  body[data-sidebar="condensed"] .app-sidebar-menu #side-menu>li>a {
+    padding: 15px 0 !important;
+    text-align: center;
+  }
+
+  /* Hide Submenus in Condensed Mode (Simplification) */
+  body[data-sidebar="condensed"] .app-sidebar-menu .collapse.show {
+    display: none !important;
+  }
+
+  /* Logo Switching for Condensed */
+  body[data-sidebar="condensed"] .logo-lg {
+    display: none !important;
+  }
+
+  body[data-sidebar="condensed"] .logo-sm {
+    display: block !important;
+    text-align: center;
+  }
+}
+
+/* ------------------------------------------------
+   MOBILE & MEDIUM SCREENS (<= 1039.98px)
+   ------------------------------------------------ */
+@media (max-width: 1039.98px) {
+
+  body[data-sidebar="hidden"] .app-sidebar-menu {
+    transform: translateX(-100%);
+    display: block !important;
+  }
+
+  body[data-sidebar="default"] .app-sidebar-menu {
+    transform: translateX(0);
+    width: 260px !important;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 10001 !important;
+    /* Higher than topbar */
+    display: block !important;
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
+    background-color: #1a1d2e;
+    /* Ensure solid background */
+  }
+
+  /* Ensure Logo expands with sidebar on Mobile */
+  body[data-sidebar="default"] .logo-box {
+    width: 260px !important;
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+  }
+
+  body[data-sidebar="default"] .logo-box .logo-lg {
+    display: block !important;
+  }
+
+  body[data-sidebar="default"] .logo-box .logo-sm {
+    display: none !important;
+  }
+
+  /* REVERT PUSH BEHAVIOR - Sidebar should be OVERLAY on Mobile */
+  body[data-sidebar="default"] .content-page,
+  body[data-sidebar="default"] .topbar-custom,
+  body[data-sidebar="default"] .sub-navbar,
+  body[data-sidebar="default"] .footer {
+    margin-left: 0 !important;
+    left: 0 !important;
+  }
+
+  /* Backdrop for Mobile Sidebar */
+  .sidebar-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10000 !important;
+    display: none;
+  }
+
+  body[data-sidebar="default"] .sidebar-backdrop {
+    display: block;
+  }
+
+  /* Close Button styling inside sidebar (hidden on Large/Medium) */
+  .mobile-close-btn {
+    display: block !important;
+    background: none;
+    border: none;
+    color: white;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  /* Fix Topbar Hamburger visibility on mobile */
+  .button-toggle-menu {
+    display: block !important;
+  }
+}
+
+/* Hide mobile-only elements on large screens */
+@media (min-width: 1040px) {
+  .mobile-close-btn {
+    display: none !important;
+  }
+}
+
+/* Custom SimpleBar Scrollbar Styling for Sidebar */
+.custom-scrollbar .simplebar-scrollbar::before {
+  background-color: #7168EE !important;
+  opacity: 0.5 !important;
+  border-radius: 10px !important;
+  width: 6px !important;
+  right: 2px !important;
+}
+
+.custom-scrollbar .simplebar-scrollbar.simplebar-visible::before {
+  opacity: 0.8 !important;
+  box-shadow: 0 0 10px rgba(113, 104, 238, 0.4);
+}
+
+.custom-scrollbar .simplebar-track.simplebar-vertical {
+  width: 10px !important;
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  border-radius: 10px !important;
+  margin: 4px 2px !important;
+}

@@ -1,0 +1,135 @@
+@import "tailwindcss";
+
+@theme {
+  --font-inter: "Inter", ui-sans-serif, system-ui, sans-serif;
+  
+  /* Primary Color: #7168EE */
+  --color-primary-50: #efeeff;
+  --color-primary-100: #e3e1fc;
+  --color-primary-200: #c6c3f8;
+  --color-primary-300: #aaa4f5;
+  --color-primary-400: #8b82f1;
+  --color-primary-500: #7168ee;
+  --color-primary-600: #5a53be;
+  --color-primary-700: #443e8f;
+  --color-primary-800: #2d2a5f;
+  --color-primary-900: #171530;
+  
+  /* Brand Colors */
+  --color-brand-dark: #0B0F1A;
+  --color-brand-light: #F8FAFC;
+  
+  /* Semantic UI Colors */
+  --color-theme-text-primary: #0F172A;
+  --color-theme-text-secondary: #64748B;
+  --color-theme-divider: #E2E8F0;
+  --color-theme-bg-paper: #FFFFFF;
+  --color-theme-bg-subtle: #F1F5F9;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-inter);
+    scroll-behavior: smooth;
+    color: var(--color-theme-text-primary);
+    background-color: var(--color-theme-bg-paper);
+  }
+  
+  body {
+    @apply antialiased;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center font-bold transition-all duration-300 rounded-xl active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  
+  .btn-sm { @apply px-4 py-2 text-sm; }
+  .btn-md { @apply px-6 py-3 text-base; }
+  .btn-lg { @apply px-8 py-4 text-lg; }
+  
+  .btn-primary {
+    @apply bg-primary-500 text-white hover:bg-primary-600 shadow-lg shadow-primary-500/25;
+  }
+  
+  .btn-outline-primary {
+    @apply border-2 border-primary-500 text-primary-500 hover:bg-primary-50;
+  }
+  
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-5xl font-bold tracking-tight text-brand-dark;
+  }
+
+  .section-subtitle {
+    @apply text-lg md:text-xl text-theme-text-secondary leading-relaxed max-w-3xl;
+  }
+}
+
+@utility pattern {
+  background-color: var(--color-brand-dark);
+  background-image:
+    repeating-linear-gradient(22.5deg, transparent, transparent 2px, color-mix(in srgb, var(--color-primary-500) 6%, transparent) 7px, color-mix(in srgb, var(--color-primary-500) 6%, transparent) 10px, transparent 3px, transparent 10px),
+    repeating-linear-gradient(67.5deg, transparent, transparent 2px, color-mix(in srgb, var(--color-primary-500) 5%, transparent) 7px, color-mix(in srgb, var(--color-primary-500) 5%, transparent) 10px, transparent 3px, transparent 10px),
+    repeating-linear-gradient(112.5deg, transparent, transparent 2px, color-mix(in srgb, var(--color-primary-500) 4%, transparent) 7px, color-mix(in srgb, var(--color-primary-500) 4%, transparent) 10px, transparent 3px, transparent 10px),
+    repeating-linear-gradient(157.5deg, transparent, transparent 2px, color-mix(in srgb, var(--color-primary-500) 3%, transparent) 7px, color-mix(in srgb, var(--color-primary-500) 3%, transparent) 10px, transparent 3px, transparent 10px);
+  background-position: 0 0;
+}
+
+@utility pattern-grid {
+  background-color: var(--color-brand-dark);
+  background-image: 
+    linear-gradient(color-mix(in srgb, var(--color-primary-500) 10%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--color-primary-500) 10%, transparent) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+@utility no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Custom SimpleBar Scrollbar Styling */
+.custom-scrollbar .simplebar-scrollbar::before {
+  background-color: var(--color-primary-500) !important;
+  opacity: 0.4 !important;
+  border-radius: 10px !important;
+  width: 5px !important;
+  right: 2px !important;
+  transition: opacity 0.2s shadow 0.2s !important;
+}
+
+.custom-scrollbar .simplebar-scrollbar.simplebar-visible::before {
+  opacity: 0.8 !important;
+  box-shadow: 0 0 10px var(--color-primary-500);
+}
+
+.custom-scrollbar .simplebar-track.simplebar-vertical {
+  width: 8px !important;
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  border-radius: 10px !important;
+  margin: 4px 2px !important;
+}
+
+.simplebar-track.simplebar-horizontal {
+  height: 8px !important;
+  background-color: transparent !important;
+}
+
+.simplebar-content-wrapper {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+.simplebar-content-wrapper::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
