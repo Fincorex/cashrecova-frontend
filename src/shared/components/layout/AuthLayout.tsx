@@ -31,7 +31,7 @@ const AuthLayout = ({ children, title, subtitle }: AuthLayoutProps) => {
         </div>
         
         <p className="mt-6 text-center text-xs text-slate-550">
-          &copy; {new Date().getFullYear()} Cashrecova Technologies. Secure Lending & Collections Platform.
+          &copy; {new Date().getFullYear()} Fincorex. Secure Lending & Collections Platform.
         </p>
       </div>
     </div>
