@@ -12,7 +12,8 @@
 import apiClient from './apiClient';
 import { ApiResponse } from '../../types';
 
-const isMockEnabled = import.meta.env.VITE_USE_MOCK_API === 'true';
+// ? Defaults to true to ensure zero-config hosting on Vercel/Netlify for frontend prototyping.
+const isMockEnabled = import.meta.env.VITE_USE_MOCK_API !== 'false';
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const mfiService = {

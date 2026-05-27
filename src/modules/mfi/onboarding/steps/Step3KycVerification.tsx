@@ -1,3 +1,14 @@
+/**
+ * Step 3: Legal & Settlement KYC Verification (Step3KycVerification.tsx)
+ * 
+ * ? Coordinates corporate document uploads (DocumentVault) and NIBSS-linked
+ * ? settlement account validations (BankVerification) under a unified view.
+ * 
+ * NOTE:
+ * Both document uploads and account verification parameters are prerequisites
+ * before transitioning to Step 4.
+ */
+
 import DocumentVault from '../components/DocumentVault';
 import BankVerification from '../components/BankVerification';
 import { OnboardingFormData, OnboardingFormErrors } from '@/types';
@@ -15,11 +26,6 @@ interface Step3KycVerificationProps {
   verifyBankAndBvn: () => void;
 }
 
-/**
- * Step3KycVerification Component
- * 
- * Handles document uploads and settlement bank resolution checks.
- */
 const Step3KycVerification = ({
   formData,
   errors,
@@ -34,14 +40,22 @@ const Step3KycVerification = ({
 }: Step3KycVerificationProps) => {
   return (
     <div className="space-y-5">
-      {/* Document Upload section */}
+      {/* 
+        * Document Upload Section 
+        * 
+        * ? Manages file selections and updates upload indicators.
+        */}
       <DocumentVault 
         formData={formData} 
         errors={errors} 
         onFileUpload={onFileUpload} 
       />
 
-      {/* Account resolution section */}
+      {/* 
+        * Account Resolution Section
+        * 
+        * ? Manages Bank, NUBAN and signatory BVN verification state panels.
+        */}
       <BankVerification 
         formData={formData} 
         errors={errors} 

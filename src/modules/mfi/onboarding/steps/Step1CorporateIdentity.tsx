@@ -1,3 +1,10 @@
+/**
+ * Step 1: Corporate Identity & Authentication (Step1CorporateIdentity.tsx)
+ * 
+ * ? Collects core corporate credentials and validation requirements (e.g. CAC registration number).
+ * ? Leverages an inline PasswordStrengthMeter component to enforce secure credentials.
+ */
+
 import PasswordStrengthMeter from '../components/PasswordStrengthMeter';
 import { OnboardingFormData, OnboardingFormErrors } from '@/types';
 
@@ -9,11 +16,6 @@ interface Step1CorporateIdentityProps {
   handleBlur: (e: React.FocusEvent<HTMLInputElement>) => void;
 }
 
-/**
- * Step1CorporateIdentity Component
- * 
- * Handles Compliance Email, Password (with strength check), Registered Name, and CAC details.
- */
 const Step1CorporateIdentity = ({
   formData,
   errors,
@@ -24,6 +26,7 @@ const Step1CorporateIdentity = ({
   return (
     <div className="space-y-4">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {/* Compliance Administrator Identity email field */}
         <div>
           <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-wide mb-1">Compliance Admin Email</label>
           <input 
@@ -39,6 +42,7 @@ const Step1CorporateIdentity = ({
           {errors.email && touched.email && <p className="text-[10px] text-rose-500 mt-1">{errors.email}</p>}
         </div>
 
+        {/* Security Credential with interactive strength analyzer */}
         <div>
           <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-wide mb-1">Admin Password</label>
           <input 
@@ -56,6 +60,7 @@ const Step1CorporateIdentity = ({
           {errors.password && touched.password && <p className="text-[10px] text-rose-500 mt-1">{errors.password}</p>}
         </div>
 
+        {/* Corporate details linked directly to regulatory registration registries */}
         <div className="sm:col-span-2">
           <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-wide mb-1">Corporate Registered Name</label>
           <input 
@@ -71,6 +76,7 @@ const Step1CorporateIdentity = ({
           {errors.orgName && touched.orgName && <p className="text-[10px] text-rose-500 mt-1">{errors.orgName}</p>}
         </div>
 
+        {/* CAC Registration number (RC-xxxxxx) to verify organization status */}
         <div>
           <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-wide mb-1">CAC Registration (RC Number)</label>
           <input 
@@ -87,6 +93,7 @@ const Step1CorporateIdentity = ({
           {errors.rcNumber && touched.rcNumber && <p className="text-[10px] text-rose-500 mt-1">{errors.rcNumber}</p>}
         </div>
 
+        {/* Date of official incorporation to compute corporate age metrics */}
         <div>
           <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-wide mb-1">Date of Incorporation</label>
           <input 
@@ -102,6 +109,7 @@ const Step1CorporateIdentity = ({
           {errors.incorporationDate && touched.incorporationDate && <p className="text-[10px] text-rose-500 mt-1">{errors.incorporationDate}</p>}
         </div>
 
+        {/* Geographical jurisdiction parameters */}
         <div>
           <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-wide mb-1">Country</label>
           <select 

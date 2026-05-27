@@ -1,3 +1,13 @@
+/**
+ * Step 2: Business & Operational Profile (Step2BusinessProfile.tsx)
+ * 
+ * ? Collects organization operational parameters (e.g. sectors, business models, turnover indicators)
+ * ? and interfaces with the Ultimate Beneficial Owner (UBO) declaration manager.
+ * 
+ * Regulatory Requirement:
+ * Financial authorities require mapping of beneficial owners owning > 10% shareholding thresholds.
+ */
+
 import UboManager from '../components/UboManager';
 import { OnboardingFormData, OnboardingFormErrors, OnboardingNewDirector } from '@/types';
 
@@ -13,11 +23,6 @@ interface Step2BusinessProfileProps {
   onRemoveDirector: (index: number) => void;
 }
 
-/**
- * Step2BusinessProfile Component
- * 
- * Handles operational indices (sector, model, turnover) and director registries.
- */
 const Step2BusinessProfile = ({
   formData,
   errors,
@@ -32,6 +37,7 @@ const Step2BusinessProfile = ({
   return (
     <div className="space-y-5">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {/* Industry Sector configurations */}
         <div>
           <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-wide mb-1">Industry Sector</label>
           <select 
@@ -46,6 +52,7 @@ const Step2BusinessProfile = ({
           </select>
         </div>
 
+        {/* Business Model detail parameter */}
         <div>
           <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-wide mb-1">Business Model</label>
           <input 
@@ -62,6 +69,7 @@ const Step2BusinessProfile = ({
           {errors.businessModel && touched.businessModel && <p className="text-[10px] text-rose-500 mt-1">{errors.businessModel}</p>}
         </div>
 
+        {/* Service portfolios description */}
         <div className="sm:col-span-2">
           <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-wide mb-1">Products & Services Offered</label>
           <input 
@@ -78,6 +86,7 @@ const Step2BusinessProfile = ({
           {errors.products && touched.products && <p className="text-[10px] text-rose-500 mt-1">{errors.products}</p>}
         </div>
 
+        {/* Scale metrics for operational validation */}
         <div>
           <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-wide mb-1">Annual Turnover (NGN)</label>
           <input 
@@ -111,7 +120,11 @@ const Step2BusinessProfile = ({
         </div>
       </div>
 
-      {/* Directors and UBO registration */}
+      {/* 
+        * Ultimate Beneficial Ownership (UBO) Registry Panel
+        * 
+        * ? Enables inline directory creation and ownership percentage validations.
+        */}
       <UboManager
         directors={formData.directors}
         newDirector={newDirector}

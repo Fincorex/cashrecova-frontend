@@ -1,3 +1,13 @@
+/**
+ * Step 4: Compliance & Risk Screening (Step4ComplianceScreening.tsx)
+ * 
+ * ? Gathers operational risk indicators (monthly inflows, source of wealth/funds)
+ * ? and triggers background screening procedures (PEP checklists, global sanctions registries).
+ * 
+ * Regulatory Requirement:
+ * Enforces CBN Anti-Money Laundering and Combating the Financing of Terrorism (AML/CFT) frameworks.
+ */
+
 import ComplianceScreenings from '../components/ComplianceScreenings';
 import { OnboardingFormData, OnboardingFormErrors } from '@/types';
 
@@ -9,11 +19,6 @@ interface Step4ComplianceScreeningProps {
   handleBlur: (e: React.FocusEvent<HTMLInputElement>) => void;
 }
 
-/**
- * Step4ComplianceScreening Component
- * 
- * Handles operational source parameters and displays PEP/Sanction check statuses.
- */
 const Step4ComplianceScreening = ({
   formData,
   errors,
@@ -24,7 +29,7 @@ const Step4ComplianceScreening = ({
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
       
-      {/* Source parameters */}
+      {/* Source parameters operational metrics inputs */}
       <div className="space-y-3.5">
         <span className="block text-[10px] font-bold text-slate-400 uppercase tracking-wide">Operational Parameters</span>
         
@@ -108,7 +113,11 @@ const Step4ComplianceScreening = ({
         </div>
       </div>
 
-      {/* Screenings list */}
+      {/* 
+        * Compliance Screening Component
+        * 
+        * ? Shows PEP background clearances and sanctions monitoring statuses.
+        */}
       <ComplianceScreenings />
 
     </div>

@@ -13,8 +13,9 @@
 import apiClient from './apiClient';
 import { User, ApiResponse } from '../../types';
 
-// Check if developer wants local decoupled simulation
-const isMockEnabled = import.meta.env.VITE_USE_MOCK_API === 'true';
+// Check if developer wants local decoupled simulation.
+// ? Defaults to true to ensure zero-config hosting on Vercel/Netlify for frontend prototyping.
+const isMockEnabled = import.meta.env.VITE_USE_MOCK_API !== 'false';
 
 // Small utility to simulate network latency during mocked execution
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
