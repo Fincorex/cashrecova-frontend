@@ -9,7 +9,7 @@
  * to ensure context states are fully instantiated before any router matches occur.
  */
 
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from '@shared/context/AuthContext';
 import { ThemeProvider } from '@shared/context/ThemeContext';
 import ScrollToTop from '@shared/components/ScrollToTop';

@@ -4,6 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: './', // Allows relative assets routing so the app runs in any root/subfolder (like GitHub Pages)
   plugins: [
     react(),
     tailwindcss(),
