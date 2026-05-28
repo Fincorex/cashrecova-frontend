@@ -16,7 +16,7 @@ const PlaceholderPage = () => {
             </div>
             <h1 className="text-3xl font-bold text-slate-900 mb-3">{label}</h1>
             <p className="text-slate-550 max-w-md mx-auto leading-relaxed">
-                This module is currently under development for the Cashrecova platform. 
+                This module is currently under development for the Cashrecova platform.
                 Soon you will be able to manage your {label.toLowerCase()} from this view.
             </p>
             <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4 w-full max-w-2xl">

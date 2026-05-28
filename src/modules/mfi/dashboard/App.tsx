@@ -15,6 +15,8 @@ import 'simplebar-react/dist/simplebar.min.css';
 import Layout from './components/layout/Layout';
 import Dashboard from './pages/Dashboard';
 import PlaceholderPage from './pages/PlaceholderPage';
+import Loans from './pages/Loans';
+import CreateLoan from './pages/CreateLoan';
 import { SidebarProvider } from './hooks/useSidebar';
 
 function DashboardAdmin() {
@@ -36,7 +38,10 @@ function DashboardAdmin() {
             * ? Non-dashboard items are linked to a consolidated `<PlaceholderPage />`
             * ? indicating future feature implementation details.
             */}
-          <Route path="loans" element={<PlaceholderPage />} />
+          <Route path="loans" element={<Loans />} />
+          <Route path="loans/create" element={<CreateLoan/>} />
+          <Route path="loans/applications" element={<PlaceholderPage />} />
+          <Route path="loans/products" element={<PlaceholderPage />} />
           <Route path="disbursements" element={<PlaceholderPage />} />
           <Route path="repayments" element={<PlaceholderPage />} />
           <Route path="recovery" element={<PlaceholderPage />} />

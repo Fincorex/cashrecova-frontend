@@ -3,6 +3,7 @@ export interface NavItem {
   label: string;
   icon: string;
   path: string;
+  children?: { id: string; label: string; path: string }[];
 }
 
 export const navigation: NavItem[] = [
@@ -13,10 +14,16 @@ export const navigation: NavItem[] = [
       path: '/dashboard'
   },
   {
-      id: 'loans',
-      label: 'Loans',
-      icon: 'solar:hand-money-bold-duotone',
-      path: '/dashboard/loans'
+    id: 'loans',
+    label: 'Loans',
+    icon: 'solar:hand-money-bold-duotone',
+    path: '/dashboard/loans',
+    children: [                                             
+      { id: 'all-loans',        label: 'All Loans',          path: '/dashboard/loans' },
+      { id: 'create-loan',      label: 'Create Loan',        path: '/dashboard/loans/create' },
+      { id: 'loan-applications',label: 'Loan Applications',  path: '/dashboard/loans/applications' },
+      { id: 'products',         label: 'Products',           path: '/dashboard/loans/products' },
+    ]
   },
   {
       id: 'disbursements',
